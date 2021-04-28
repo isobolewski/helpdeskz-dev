@@ -14,6 +14,13 @@ return [
         'searchResults' => 'Search results',
         'searchResultsFor' => 'Search results for %keyword%',
     ],
+    'register' => [
+        'menu' => 'Register',
+        'title' => 'Register to %site_name%',
+        'button' => 'Register',
+        'loginLink' => 'Sign in',
+        'validationEmailSent' => 'Registration successful.',
+    ],
     'login' => [
         'menu' => 'Login',
         'title' => 'Sign in to %site_name%',
@@ -26,7 +33,7 @@ return [
         'title' => 'Submit a support request',
         'menu' => 'Submit ticket',
         'selectDepartment' => 'If you can\'t find a solution to your problem, you can submit a ticket by selecting the appropriate department below.',
-'generalInformation' => 'General information',
+        'generalInformation' => 'General information',
         'requestReceived' => 'Your request has been received',
         'requestReceivedDescription' => 'We have received your request and our team will get back to you shortly. You can log in to the helpdesk to review the status of your request, or check your email for further updates.',
     ],
@@ -50,7 +57,7 @@ return [
         'passwordUpdated' => 'Password has been updated.'
     ],
     'form' => [
-        'email' => 'E-mail address',
+        'email' => 'Email address',
         'password' => 'Password',
         'submit' => 'Submit',
         'captchaVerification' => 'CAPTCHA verification',
@@ -74,6 +81,7 @@ return [
         'defaultTimezone' => 'Default timezone',
         'newPassword' => 'New password',
         'existingPassword' => 'Existing password',
+        'repeatPassword' => 'Repeat password',
         'confirm' => 'Confirm',
         'save' => 'Save',
         'open' => 'Open',

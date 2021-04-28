@@ -70,6 +70,10 @@ $routes->add('login','UserAuth::login',[
     'as' => 'login',
     'filter' => 'userAuth:visitor'
 ]);
+$routes->add('register','UserAuth::register',[
+    'as' => 'register',
+    'filter' => 'userAuth:visitor'
+]);
 $routes->add('forgot-password','UserAuth::forgot',[
     'as' => 'forgot_password',
     'filter' => 'userAuth:visitor'

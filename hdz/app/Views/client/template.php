@@ -57,6 +57,9 @@ $page_controller = isset($page_controller) ? $page_controller : '';
                     <li class="nav-item <?php if($page_controller == 'login'){ echo 'active';}?>">
                         <a class="nav-link" href="<?php echo site_url(route_to('login'));?>"><?php echo lang('Client.login.menu');?></a>
                     </li>
+                    <li class="nav-item <?php if($page_controller == 'login'){ echo 'active';}?>">
+                        <a class="nav-link" href="<?php echo site_url(route_to('register'));?>"><?php echo lang('Client.register.menu');?></a>
+                    </li>
                 <?php endif;?>
             </ul>
         </div>
