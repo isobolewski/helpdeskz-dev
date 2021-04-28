@@ -1,3 +1,4 @@
 hdz/app/Config/Helpdesk.php
 hdz/writable
 hdz/install
+.env
