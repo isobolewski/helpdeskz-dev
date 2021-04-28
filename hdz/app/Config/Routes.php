@@ -55,15 +55,15 @@ $routes->add('download/article-(:num)-(:num)', 'Kb::download/$1/$2',[
 ]);
 $routes->add('submit-ticket', 'Ticket::selectDepartment',[
     'as' => 'submit_ticket',
-    'filter' => 'userAuth'
+    'filter' => 'userAuth:user'
 ]);
 $routes->add('submit-ticket/(:num)-(:any)', 'Ticket::create/$1',[
     'as' => 'submit_ticket_department',
-    'filter' => 'userAuth'
+    'filter' => 'userAuth:user'
 ]);
 $routes->add('submit-ticket/confirmation/(:num)/(:any)', 'Ticket::confirmedTicket/$1/$2',[
     'as' => 'ticket_preview',
-    'filter' => 'userAuth'
+    'filter' => 'userAuth:user'
 ]);
 #Guest
 $routes->add('login','UserAuth::login',[
