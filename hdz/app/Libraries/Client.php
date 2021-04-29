@@ -129,7 +129,7 @@ class Client
         return $client_id;
     }
 
-    public function createAccount($name, $email, $password = '', $send_mail = true, $status = 1)
+    public function createAccount($name, $email, $password = '', $send_mail = true, $status = 1, $send_activation_mail = false)
     {
         if ($password == '') {
             $password = random_string('alnum', 16);
@@ -146,6 +146,7 @@ class Client
         $this->usersModel->protect(true);
         $client_id = $this->usersModel->getInsertID();
 
+        // Send password mail 
         if ($send_mail) {
             $emails = new Emails();
             $emails->sendFromTemplate('new_user', [
@@ -154,6 +155,17 @@ class Client
                 '%client_password%' => $password
             ], $email);
         }
+
+        // Send account activation mail
+        if ($send_activation_mail) {
+            $emails = new Emails();
+            $emails->sendFromTemplate('account_activation', [
+                '%client_name%' => $name,
+                '%client_email%' => $email,
+                '%activation_link%' => base64_encode($client_id . '|' . $email)
+            ], $email);
+        }
+
         return $client_id;
     }
 
