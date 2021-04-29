@@ -169,6 +169,37 @@ class Client
         return $client_id;
     }
 
+    public function activateAccount($activation_arr)
+    {
+        $user_data = $this->getRow([
+            'id'    => $activation_arr[0],
+            'email' => $activation_arr[1]
+        ]);
+
+        if (!$user_data) {
+            // No valid user
+            return false;
+        } else {
+            // Check if account is already active
+            if ($user_data->status == 1) {
+                return 'alreadyActivated';
+            } else {
+                // Activate account
+                $this->usersModel->protect(false);
+                $this->usersModel->update($user_data->id, [
+                    'status' => 1
+                ]);
+                $this->usersModel->protect(true);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        return false;
+    }
+
     public function recoverPassword($client_data)
     {
         $new_password = random_string('alnum', 16);

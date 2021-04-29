@@ -29,6 +29,10 @@ return [
         'forgotDescription' => 'Please enter your registered email address and click Submit. You will receive an email with a link to reset your password shortly.',
         'passwordSent' => 'We have sent an email with a new password to the address provided',
     ],
+    'activate' => [
+        'menu' => 'Account activation',
+        'title' => 'Account activation'
+    ],
     'submitTicket' => [
         'title' => 'Submit a support request',
         'menu' => 'Submit ticket',
@@ -54,7 +58,8 @@ return [
         'general' => 'General',
         'changePassword' => 'Change password',
         'profileUpdated' => 'Your profile has been updated.',
-        'passwordUpdated' => 'Password has been updated.'
+        'passwordUpdated' => 'Password has been updated.',
+        'accountActivationSuccessful' => 'Your account was activated, you can sign in now.'
     ],
     'form' => [
         'email' => 'Email address',
@@ -113,7 +118,9 @@ return [
         'enterExistingPassword' => 'Enter your existing password.',
         'enterNewPassword' => 'Enter your new password.',
         'passwordsNotMatches' => 'The new passwords entered do not match.',
-        'wrongExistingPassword' => 'Your existing password is incorrect.'
+        'wrongExistingPassword' => 'Your existing password is incorrect.',
+        'invalidAccountActivation' => 'ERROR: Invalid account activation.',
+        'accountAlreadyActivated' => 'Account is already active.'
     ],
     '404' => [
         'title' => 'Page not found - 404',

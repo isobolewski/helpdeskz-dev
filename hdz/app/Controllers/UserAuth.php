@@ -50,6 +50,31 @@ class UserAuth extends BaseController
         ]);
     }
 
+    public function activate($activation_link)
+    {
+        $encoded_activation = esc(base64_decode($activation_link));
+        $activation_arr = explode('|', $encoded_activation);
+
+        if (count($activation_arr) !== 2) {
+            $error_msg = lang('Client.error.invalidAccountActivation');
+        } else {
+            // Proceed account activation
+            $status = $this->client->activateAccount($activation_arr);
+            if (!$status) {
+                $error_msg = lang('Client.error.invalidAccountActivation');
+            } elseif ($status === 'alreadyActivated') {
+                $error_msg = lang('Client.error.accountAlreadyActivated');
+            } else {
+                // Successful activation
+                $this->session->setFlashdata('activation_success', lang('Client.account.accountActivationSuccessful'));
+            }
+        }
+
+        return view('client/activate', [
+            'error_msg' => isset($error_msg) ? $error_msg : null
+        ]);
+    }
+
     public function login()
     {
         if ($this->request->getPost('do') == 'submit') {
