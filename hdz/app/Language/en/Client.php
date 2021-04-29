@@ -19,7 +19,7 @@ return [
         'title' => 'Register to %site_name%',
         'button' => 'Register',
         'loginLink' => 'Sign in',
-        'validationEmailSent' => 'Registration successful.',
+        'validationEmailSent' => 'Registration successful! An activation link was sent to your email.',
     ],
     'login' => [
         'menu' => 'Login',

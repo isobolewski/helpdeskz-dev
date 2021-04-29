@@ -36,8 +36,9 @@ class UserAuth extends BaseController
                     $this->request->getPost('fullname'),
                     $this->request->getPost('email'),
                     $this->request->getPost('password'),
-                    false,
-                    1
+                    false, // Do not send link with password
+                    0,     // Lock account until activation by user
+                    true   // Send activation link
                 );
                 $this->session->setFlashdata('form_success', lang('Client.register.validationEmailSent'));
                 return redirect()->route('register');
